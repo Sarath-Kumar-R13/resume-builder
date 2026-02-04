@@ -1,0 +1,119 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, black, grey, rgb(6, 6, 6));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.logo {
+    margin-bottom: 20px;    
+}
+
+.logo img {
+    width: 250px;
+    height: 250px;
+    filter: drop-shadow(3px 5px 8px rgb(10, 10, 10));
+}
+
+/* ===== LOGIN BOX ===== */
+
+.login-box {
+    width: 540px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    color: #ffffff;
+    box-shadow: 0 0 25px rgba(14, 14, 14, 0.2);
+    transition: 0.3s;
+    margin-bottom: 16px;
+}
+
+
+.login-box:hover {
+    box-shadow: 0 0 35px rgba(243, 242, 242, 0.878);
+}
+
+/* ===== HEADING ===== */
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 8px rgba(0, 255, 229, 0.8);
+}
+
+
+.login-box label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* ===== INPUTS ===== */
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    outline: none;
+}
+
+.login-box input::placeholder {
+    color: #faf9f9a3;
+}
+
+/* ===== BUTTON ===== */
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #355473;
+    color: #f8f5f5;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-box button:hover {
+    background: #03728eb6;
+    box-shadow: 0 0 10px rgba(0, 198, 255, 0.8);
+}
+
+
+.extra {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.extra a {
+    color: #05b8eaf7;
+    /* text-shadow: 0 0 5px rgba(0, 198, 255, 0.8); */
+    text-shadow: 0 0 8px rgba(0, 255, 229, 0.8);
+    text-decoration: none;
+}
+
+
+.error {
+    background: rgba(255, 0, 0, 0.25);
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
