@@ -24,8 +24,12 @@ Route::middleware('auth')->group(function(){
 //     ->name('resume.store');
 
 //===================================================preview of resume===============================================//
-Route::get('/resume/preview', [ResumeController::class, 'preview'])
-    ->name('resume.preview');
+// Route::get('/resume/preview', [ResumeController::class, 'preview'])
+//     ->name('resume.preview');
+    
+Route::get('/resume/{id}/preview', [ResumeController::class, 'preview'])
+    ->name('resume.preview')
+    ->middleware('auth');
 
 //====================================================resume pdf download============================================//
 Route::get('/resume/download', [ResumeController::class, 'downloadPdf'])
@@ -36,6 +40,8 @@ Route::get('/dashboard',[ResumeController::class,'dashboard'])->middleware('auth
 
 //========================================================login====================================================//
 Route::get('/login',[AuthController::class,'showlogin'])->name('login');
+
+Route::post('/login', [AuthController::class, 'login']);
 
 // ==============================================registrationn=======================================================//
 Route::get('/register',[AuthController::class,'showregister'])->name('login');

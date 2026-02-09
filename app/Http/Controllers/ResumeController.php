@@ -93,6 +93,8 @@ class ResumeController extends Controller
     // }
     public function preview($id){
         $resume=Resume::where('id',$id)->where('user_id',auth()->id())->firstorfail();
+
+        return view('resume.preview',compact('resume'));
     }
 //==================================================================PDF==============================================//
     public function downloadPdf(){
