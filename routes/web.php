@@ -42,6 +42,8 @@ Route::get('/dashboard',[ResumeController::class,'dashboard'])->middleware('auth
 Route::get('/login',[AuthController::class,'showlogin'])->name('login');
 
 Route::post('/login', [AuthController::class, 'login']);
+// -====================================================logiut=======================================================//
+Route::post('/logout',[AuthController::class,'logout'])->name('logout');
 
 // ==============================================registrationn=======================================================//
 Route::get('/register',[AuthController::class,'showregister'])->name('login');

@@ -34,8 +34,8 @@ class AuthController extends Controller
     public function register(Request $request){
         $request->validate([
             'name'=>'required|string|max:255',
-            'email'=>'required|email|unique:users',
-            'password'=>'required|min:6|confirmed'
+            'email'=>'required|email|unique:users,email',
+            'password'=>'required|string|min:6|confirmed'
         ]);
 
         $user=user::create([
@@ -44,7 +44,7 @@ class AuthController extends Controller
             'password'=>Hash::make($request->password),
         ]);
 
-        Auth::login($user);//gets logged in after registeration automatically 
+        Auth::login($user);// logged in after registeration automatically 
 
         return redirect()->route('dashboard');
     }
