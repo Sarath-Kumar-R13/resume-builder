@@ -14,32 +14,49 @@
 <body>
 
 <div class="register-card">
+    <!-- @if($errors->any())
+    <div style="color:red;">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif -->
+    @if ($errors->any())
+    <div class="alert alert-danger rounded-3 shadow-sm">
+        {{ $errors->first() }}
+    </div>
+    @endif
+
+
 
         <h4>REGISTRATION</h4>
 
-    <form>
-
+    <form method="POST" action="{{route('register')}}">
+        @csrf
         <div class="mb-3">
             <label>Full Name:</label>
-            <input type="text" class="form-control" placeholder="Enter your name">
+            <input type="text" name="name" class="form-control" placeholder="Enter your name">
         </div>
 
         <div class="mb-3">
             <label>Email:</label>
-            <input type="email" class="form-control" placeholder="Enter your email">
+            <input type="email" name="email" class="form-control" placeholder="Enter your email">
         </div>
 
         <div class="mb-3">
             <label>Password:</label>
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="password" name="password" class="form-control" placeholder="Password">
         </div>
 
         <div class="mb-4">
             <label>Confirm Password:</label>
-            <input type="password" class="form-control" placeholder="Confirm password">
+            <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm password">
         </div>
 
-        <button class="btn btn-custom w-100 py-2">REGISTER</button>
+        <!-- <button class="btn btn-custom w-100 py-2">REGISTER</button> -->
+         <button type="submit" class="btn btn-custom w-100 py-2">REGISTER</button>
 
     </form>
 

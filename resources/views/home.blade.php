@@ -5,29 +5,17 @@
     <title>Resume Builder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="{{asset('css/home.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-        }
-        .hero h1 {
-            font-weight: 700;
-        }
-    </style>
+    
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+<!-- //NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm my-nav">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="/">ResumeBuilder</a>
+        <a class="navbar-brand fw-bold" href="/">RESUME BUILDER</a>
 
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
@@ -41,7 +29,7 @@
                     <a class="btn btn-outline-primary me-2" href="{{ route('login')}}">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-primary" href="#">Register</a>
+                    <a class="btn btn-primary" href="{{route('register')}}">Register</a>
                 </li>
             </ul>
         </div>

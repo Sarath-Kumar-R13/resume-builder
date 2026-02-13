@@ -46,5 +46,5 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout',[AuthController::class,'logout'])->name('logout');
 
 // ==============================================registrationn=======================================================//
-Route::get('/register',[AuthController::class,'showregister'])->name('login');
+Route::get('/register',[AuthController::class,'showregister'])->name('register');
 Route::post('/register',[AuthController::class,'register']);
