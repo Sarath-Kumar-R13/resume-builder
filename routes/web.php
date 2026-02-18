@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\AuthController;
 
+use App\Models\user;
+use App\Models\Resume;
+
 Route::get('/', function () {
     return view('home');
 });
@@ -38,6 +41,30 @@ Route::get('/resume/download', [ResumeController::class, 'downloadPdf'])
 // ========================================================dashboard===============================================//
 Route::get('/dashboard',[ResumeController::class,'dashboard'])->middleware('auth')->name('dashboard');
 
+//===================================================admin dashboard/panel=========================================//
+Route::middleware(['auth','admin'])->prefix('admin')->group(function(){
+    Route::get('/adminpanel',function(){
+        return view('admin.adminpanel');
+    })->name('admin.adminpanel');
+});
+Route::middleware(['auth','admin'])
+    ->prefix('admin')
+    ->group(function(){
+
+        Route::get('/dashboard', function(){
+
+            $totalUsers = User::count();
+            $totalResumes = Resume::count();
+            $users = User::latest()->take(5)->get();
+
+            return view('admin.adminpanel', compact(
+                'totalUsers',
+                'totalResumes',
+                'users'
+            ));
+        })->name('admin.adminpanel');
+
+});
 //========================================================login====================================================//
 Route::get('/login',[AuthController::class,'showlogin'])->name('login');
 

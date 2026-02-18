@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Resume;
+// use App\Http\Controller\AuthController;
+
 use PDF;
 
 class ResumeController extends Controller
@@ -111,9 +114,9 @@ class ResumeController extends Controller
  public function dashboard(){
     $user=Auth::user();
 
-    $resume=Resume::where('user_id',$user->id())->get();
+    $resumes=Resume::where('user_id',$user->id)->get();
 
-    return view('dashboard',compact('user','resume'));
+    return view('dashboard',compact('user','resumes'));
  }
  //==================================================================---create---=====================================//
 //  public function create(){

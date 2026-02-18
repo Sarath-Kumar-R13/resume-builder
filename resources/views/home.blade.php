@@ -86,7 +86,7 @@
 <!-- FOOTER -->
 <footer class="text-center py-3 bg-light">
     <small class="text-muted">
-        © {{ date('1997') }} ResumeBuilder.Proprietor Sarath Kumar R. All rights reserved.
+        &trade; 1997.ResumeBuilder.All rights reserved &copy;.<br>Proprietor:Sarath Kumar R.
     </small>
 </footer>
 
