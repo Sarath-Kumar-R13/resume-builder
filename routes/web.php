@@ -28,9 +28,13 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/resume/{id}/preview',[ResumeController::class,'preview'])->name('resume.preview');
 
-    Route::post('/resume/{id}/update',[ResumeController::class,'update'])->name('resume.update');
+    Route::post('/resume/{id}/edit',[ResumeController::class,'edit'])->name('resume.edit');
 
-    Route::get('/resume/{id}/delete',[ResumeController::class,'delete'])->name('resume.delete');
+    Route::put('/resume/{id}',[ResumeController::class,'update'])->name('resume.update');
+
+    Route::delete('/resume/{id}',[ResumeController::class,'destroy'])->name('resume.destroy');
+
+    Route::get('/resume/{id}',[ResumeController::class,'downloadPdf'])->name('resume.download');
 });
 // Route::post('/resume/store', [ResumeController::class, 'store'])
 //     ->name('resume.store');

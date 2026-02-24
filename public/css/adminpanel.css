@@ -52,7 +52,7 @@
      
 
 body {
-    background: linear-gradient(135deg, #0f2027, #203a43,black);
+    background: linear-gradient(135deg, #070707, #060f0fc1,rgba(23, 67, 94, 0.741),rgb(12, 6, 6));
     color: #fff;
     font-family: 'Segoe UI', sans-serif;
 }
