@@ -9,4 +9,11 @@ class Resume extends Model
     protected $fillable=['user_id','resume_data','image'];
 
     protected $casts=['resume_data'=> 'array'];
+
+    public function user(){
+    return $this->belongsTo(User::class);
+}
+    public function template(){
+        return $this->belongsTo(\App\Models\Template::class);
+    }
 }

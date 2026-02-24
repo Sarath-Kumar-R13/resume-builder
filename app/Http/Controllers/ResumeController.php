@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Resume;
-// use App\Http\Controller\AuthController;
-
-use PDF;
+use App\Models\Template;
+use App\Http\Controller\AuthControllers;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ResumeController extends Controller
 {
@@ -71,7 +71,7 @@ class ResumeController extends Controller
 
     // savr /update
     Resume::updateOrCreate(
-        ['user_id' => auth()->id()],
+        ['user_id' => auth::id()],
         [
             'resume_data' => $resumeData,
             'image' => $imageName
@@ -95,21 +95,28 @@ class ResumeController extends Controller
     //     ]);
     // }
     public function preview($id){
-        $resume=Resume::where('id',$id)->where('user_id',auth()->id())->firstorfail();
+        $resume=Resume::where('id',$id)->where('user_id',auth::id())->firstOrFail();
 
         return view('resume.preview',compact('resume'));
     }
+
+    public function create(){
+    $templates = Template::where('is_active', true)->get();
+
+    return view('resume.create', compact('templates'));
+}
 //==================================================================PDF==============================================//
     public function downloadPdf(){
-    $resume = Resume::where('user_id', auth()->id())->first();
+    $resume = Resume::where('user_id', auth::id())->firstOrFail();
 
-    $pdf = PDF::loadView('resume.preview', [
+    $pdf = Pdf::loadView('resume.preview', [
         'resume' => $resume,
         'data' => $resume->resume_data
     ]);
 
     return $pdf->download('resume.pdf');
 }
+
 //======================================================================dashboard=====================================//
  public function dashboard(){
     $user=Auth::user();

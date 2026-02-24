@@ -3,17 +3,17 @@
 <head>
     <title>Admin panel | ProVitae</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/adminpanel.css') }}">
     
 </head>
 
-<body class="text-dark">
+<body class="text-white">
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark glass px-4">
     <a class="navbar-brand d-flex align-items-center" href="#">
-        <!-- <img src="{{ asset('images/logo/RB-logo2-1.png') }}" height="40" class="me-2"> -->
-        <strong>Admin Panel</strong>
+        <img src="../images/logo/my_project_logo1_2_0.png" height="0" class="me-2">
+        <!-- <strong>Admin Panel</strong> -->
     </a>
 
     <div class="ms-auto">
@@ -52,27 +52,27 @@
         </div>
 
         <!-- MAIN CONTENT -->
-        <div class="col-md-10 p-5">
+        <div class="col-md-10 p-5 grd-bg">
 
             <h2 class="mb-4">Admin Overview</h2>
 
             <!-- STATS CARDS -->
             <div class="row mb-5">
                 <div class="col-md-4">
-                    <div class="card card-glass shadow p-4">
+                    <div class="card card-glass shadow p-4 card-txt">
                         <h5>Total Users</h5>
                         <h2>{{ $totalUsers ?? 0 }}</h2>
                     </div>
                 </div>
 
                 <div class="col-md-4">
-                    <div class="card card-glass shadow p-4">
+                    <div class="card card-glass shadow p-4 card-txt">
                         <h5>Total Resumes</h5>
                         <h2>{{ $totalResumes ?? 0 }}</h2>
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 card-txt">
                     <div class="card card-glass shadow p-4">
                         <h5>Templates</h5>
                         <h2>3</h2>
